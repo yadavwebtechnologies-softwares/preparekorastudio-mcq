@@ -19,7 +19,7 @@
 
     --font: "Roboto", Arial, sans-serif;
 
-    --sidebar-width: 390px;
+    --sidebar-width: 410px;
     --topbar-height: 68px;
 }
 
@@ -38,7 +38,7 @@ body {
     background: var(--page-bg);
     color: var(--primary);
     font-family: var(--font);
-    font-size: 14px;
+    font-size: 16px;
     -webkit-font-smoothing: antialiased;
 }
 
@@ -115,7 +115,7 @@ select {
     gap: 0;
     color: #222;
     text-decoration: none;
-    font-size: 19px;
+    font-size: 22px;
     font-weight: 800;
     letter-spacing: -.7px;
 }
@@ -128,7 +128,7 @@ select {
 .app-brand small {
     margin-left: 9px;
     color: #999;
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 500;
     letter-spacing: .2px;
 }
@@ -147,14 +147,14 @@ select {
 }
 
 .nav-item {
-    height: 38px;
-    padding: 0 15px;
+    height: 42px;
+    padding: 0 16px;
     position: relative;
     border: 0;
     border-radius: 6px;
     background: transparent;
     color: #777;
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 500;
     transition: background .2s ease, color .2s ease;
 }
@@ -218,7 +218,7 @@ select {
 
 .save-status {
     color: #888;
-    font-size: 11px;
+    font-size: 13px;
     font-weight: 500;
     white-space: nowrap;
 }
@@ -229,15 +229,15 @@ select {
 ========================================= */
 
 .button {
-    min-height: 38px;
-    padding: 0 16px;
+    min-height: 44px;
+    padding: 0 19px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 7px;
+    gap: 8px;
     border: 1px solid transparent;
     border-radius: 7px;
-    font-size: 12px;
+    font-size: 15px;
     font-weight: 600;
     transition: background .2s ease, border-color .2s ease;
 }
@@ -274,20 +274,21 @@ select {
 }
 
 .panel-heading {
-    padding: 23px 23px 19px;
+    padding: 26px 24px 21px;
     border-bottom: 1px solid #ededed;
 }
 
 .panel-heading h1 {
-    font-size: 18px;
+    font-size: 23px;
     font-weight: 700;
-    letter-spacing: -.3px;
+    letter-spacing: -.4px;
 }
 
 .panel-heading p {
-    margin-top: 5px;
+    margin-top: 7px;
     color: var(--secondary);
-    font-size: 11px;
+    font-size: 14px;
+    line-height: 1.5;
 }
 
 
@@ -297,7 +298,7 @@ select {
 
 .editor-section {
     display: none;
-    padding: 22px 23px 30px;
+    padding: 25px 24px 32px;
     animation: sectionFade .2s ease;
 }
 
@@ -318,18 +319,49 @@ select {
 }
 
 .section-heading {
-    margin-bottom: 23px;
+    margin-bottom: 22px;
 }
 
 .section-heading h2 {
-    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
     font-weight: 700;
 }
 
 .section-heading p {
-    margin-top: 5px;
+    margin-top: 7px;
     color: var(--secondary);
-    font-size: 11px;
+    font-size: 14px;
+    line-height: 1.55;
+}
+
+/* Workflow step number */
+
+.step-number {
+    width: 27px;
+    height: 27px;
+    flex-shrink: 0;
+    display: inline-grid;
+    place-items: center;
+    border-radius: 50%;
+    background: #292929;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+/* Spacing between workflow steps */
+
+.workflow-heading {
+    margin-top: 29px;
+    padding-top: 22px;
+    border-top: 1px solid #ededed;
+}
+
+.workflow-heading p {
+    padding-left: 37px;
 }
 
 
@@ -338,14 +370,14 @@ select {
 ========================================= */
 
 .field-group {
-    margin-bottom: 19px;
+    margin-bottom: 21px;
 }
 
 .field-group > label {
     display: block;
-    margin-bottom: 8px;
+    margin-bottom: 9px;
     color: #454545;
-    font-size: 11px;
+    font-size: 14px;
     font-weight: 600;
 }
 
@@ -354,20 +386,43 @@ select {
 .field-group input[type="number"],
 .field-group textarea,
 .field-group select {
-    min-height: 39px;
-    padding: 10px 11px;
+    min-height: 45px;
+    padding: 11px 13px;
     border: 1px solid #dedede;
     border-radius: 7px;
     background: #fff;
     color: #333;
-    font-size: 12px;
+    font-size: 14px;
     transition: border-color .2s ease, box-shadow .2s ease;
 }
 
 .field-group textarea {
-    min-height: 95px;
+    min-height: 120px;
     resize: vertical;
-    line-height: 1.5;
+    line-height: 1.6;
+}
+
+/* Main paste-format field */
+
+#bulkContent {
+    min-height: 245px;
+    padding: 15px;
+    font-family: var(--font);
+    font-size: 14px;
+    line-height: 1.75;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    background: #fff;
+}
+
+#bulkContent:focus {
+    border-color: #777;
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, .045);
+}
+
+#bulkContent::placeholder {
+    color: #aaa;
+    opacity: 1;
 }
 
 .field-group input:focus,
@@ -388,10 +443,10 @@ select {
 }
 
 .field-help {
-    margin-top: 7px;
-    color: #999;
-    font-size: 10px;
-    line-height: 1.5;
+    margin-top: 8px;
+    color: #888;
+    font-size: 12px;
+    line-height: 1.6;
 }
 
 .input-row {
@@ -470,12 +525,12 @@ select {
 
 .canvas-information span {
     color: #888;
-    font-size: 10px;
+    font-size: 12px;
 }
 
 .canvas-information strong {
     color: #333;
-    font-size: 15px;
+    font-size: 17px;
     font-weight: 700;
 }
 
@@ -497,7 +552,7 @@ select {
 
 .color-input-row span {
     color: #777;
-    font-size: 11px;
+    font-size: 13px;
 }
 
 
@@ -507,7 +562,7 @@ select {
 
 .export-information {
     margin: 20px 0;
-    padding: 14px;
+    padding: 15px;
     display: flex;
     flex-direction: column;
     gap: 14px;
@@ -524,25 +579,77 @@ select {
 
 .export-information span {
     color: #888;
-    font-size: 10px;
+    font-size: 12px;
 }
 
 .export-information strong {
     color: #333;
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 700;
 }
 
 .export-note {
     margin-top: 12px;
     color: #888;
-    font-size: 10px;
+    font-size: 13px;
     line-height: 1.6;
 }
 
 .field-group input[type="range"] {
     accent-color: #333;
     cursor: pointer;
+}
+
+/* Preview action */
+
+.workflow-action {
+    margin-top: 25px;
+}
+
+.workflow-action .button {
+    min-height: 49px;
+    font-size: 16px;
+}
+
+/* Download action */
+
+#exportButton {
+    min-height: 50px;
+    margin-top: 3px;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+
+/* =========================================
+   Advanced Settings
+========================================= */
+
+.advanced-settings {
+    margin-top: 25px;
+    border-top: 1px solid #ededed;
+}
+
+.advanced-settings summary {
+    padding: 17px 2px;
+    color: #555;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+}
+
+.advanced-settings summary:hover {
+    color: #222;
+}
+
+.advanced-settings[open] summary {
+    margin-bottom: 17px;
+    border-bottom: 1px solid #ededed;
+}
+
+.advanced-settings .settings-information {
+    margin-top: 20px;
 }
 
 
@@ -558,14 +665,14 @@ select {
 }
 
 .settings-information > strong {
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 700;
 }
 
 .settings-information > p {
     margin-top: 7px;
     color: #888;
-    font-size: 10px;
+    font-size: 12px;
     line-height: 1.6;
 }
 
@@ -594,7 +701,7 @@ select {
 
 .id-format-legend span {
     color: #999;
-    font-size: 8px;
+    font-size: 10px;
 }
 
 
@@ -615,14 +722,14 @@ select {
 }
 
 .setting-description strong {
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 600;
 }
 
 .setting-description p {
     margin-top: 5px;
     color: #888;
-    font-size: 10px;
+    font-size: 12px;
     line-height: 1.5;
 }
 
@@ -681,14 +788,14 @@ select {
     border-radius: 6px;
     background: #f5f5f5;
     color: #777;
-    font-size: 10px;
+    font-size: 12px;
     line-height: 1.5;
 }
 
 .setting-note {
     margin-top: 13px;
     color: #999;
-    font-size: 10px;
+    font-size: 12px;
     line-height: 1.6;
 }
 
@@ -715,23 +822,23 @@ select {
 }
 
 .preview-toolbar h2 {
-    font-size: 14px;
+    font-size: 18px;
     font-weight: 700;
 }
 
 .preview-toolbar p {
     margin-top: 5px;
     color: #888;
-    font-size: 10px;
+    font-size: 13px;
 }
 
 .preview-size {
-    padding: 7px 10px;
+    padding: 8px 11px;
     border: 1px solid #dedede;
     border-radius: 6px;
     background: white;
     color: #777;
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 600;
     white-space: nowrap;
 }
@@ -769,6 +876,7 @@ select {
 
 /* =========================================
    Poster Design
+   ORIGINAL IMAGE LAYOUT PRESERVED
 ========================================= */
 
 .poster {
@@ -989,7 +1097,7 @@ select {
     align-items: center;
     justify-content: space-between;
     color: #999;
-    font-size: 10px;
+    font-size: 12px;
 }
 
 
@@ -1036,14 +1144,14 @@ select {
 }
 
 .export-loader h3 {
-    font-size: 14px;
+    font-size: 17px;
     font-weight: 700;
 }
 
 .export-loader p {
     margin-top: 8px;
     color: #888;
-    font-size: 11px;
+    font-size: 13px;
     line-height: 1.5;
 }
 
@@ -1093,7 +1201,7 @@ select {
 @media (max-width: 1050px) {
 
     :root {
-        --sidebar-width: 340px;
+        --sidebar-width: 350px;
     }
 
     .topbar {
@@ -1110,13 +1218,13 @@ select {
     }
 
     .panel-heading {
-        padding-left: 19px;
-        padding-right: 19px;
+        padding-left: 20px;
+        padding-right: 20px;
     }
 
     .editor-section {
-        padding-left: 19px;
-        padding-right: 19px;
+        padding-left: 20px;
+        padding-right: 20px;
     }
 }
 
@@ -1138,7 +1246,7 @@ select {
     }
 
     .app-brand {
-        font-size: 17px;
+        font-size: 18px;
     }
 
     .app-brand small {
@@ -1173,9 +1281,10 @@ select {
 
     .nav-item {
         width: 100%;
-        height: 39px;
+        height: 42px;
         padding: 0 12px;
         text-align: left;
+        font-size: 15px;
     }
 
     .topbar-actions {
@@ -1187,9 +1296,9 @@ select {
     }
 
     .topbar-actions .button {
-        min-height: 35px;
+        min-height: 38px;
         padding: 0 11px;
-        font-size: 10px;
+        font-size: 12px;
     }
 
     .workspace {
@@ -1209,19 +1318,48 @@ select {
     }
 
     .panel-heading {
-        padding: 17px 17px 14px;
+        padding: 19px 17px 16px;
     }
 
     .panel-heading h1 {
-        font-size: 16px;
+        font-size: 21px;
+    }
+
+    .panel-heading p {
+        font-size: 14px;
     }
 
     .editor-section {
-        padding: 18px 17px 23px;
+        padding: 20px 17px 25px;
     }
 
-    .section-heading {
-        margin-bottom: 19px;
+    .section-heading h2 {
+        font-size: 18px;
+    }
+
+    .section-heading p {
+        font-size: 14px;
+    }
+
+    .field-group > label {
+        font-size: 14px;
+    }
+
+    .field-group input[type="text"],
+    .field-group input[type="url"],
+    .field-group input[type="number"],
+    .field-group textarea,
+    .field-group select {
+        font-size: 15px;
+    }
+
+    #bulkContent {
+        min-height: 220px;
+        font-size: 14px;
+    }
+
+    .field-help {
+        font-size: 12px;
     }
 
     .preview-panel {
@@ -1231,6 +1369,10 @@ select {
 
     .preview-toolbar {
         margin-bottom: 14px;
+    }
+
+    .preview-toolbar h2 {
+        font-size: 17px;
     }
 
     .preview-stage {
@@ -1252,7 +1394,7 @@ select {
     }
 
     .app-brand {
-        font-size: 15px;
+        font-size: 16px;
     }
 
     .mobile-menu-toggle {
@@ -1261,9 +1403,9 @@ select {
     }
 
     .topbar-actions .button {
-        min-height: 33px;
+        min-height: 35px;
         padding: 0 9px;
-        font-size: 9px;
+        font-size: 11px;
     }
 
     .panel-heading {
@@ -1285,15 +1427,27 @@ select {
     }
 
     .preview-toolbar h2 {
-        font-size: 13px;
+        font-size: 16px;
     }
 
     .preview-size {
-        font-size: 9px;
+        font-size: 11px;
     }
 
     .custom-size-fields {
         gap: 8px;
+    }
+
+    #bulkContent {
+        min-height: 200px;
+        padding: 12px;
+        font-size: 13px;
+    }
+
+    .step-number {
+        width: 25px;
+        height: 25px;
+        font-size: 12px;
     }
 }
 
