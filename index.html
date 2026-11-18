@@ -1,0 +1,651 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff">
+
+    <title>Preparekora MCQ Studio</title>
+    <meta name="description" content="Create and export professional Preparekora MCQ images.">
+
+    <!-- Roboto Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="app" id="app">
+
+    <!-- Navigation -->
+
+    <header class="topbar">
+
+        <a href="#" class="app-brand" aria-label="Preparekora Studio">
+            <span>preparekora</span><span class="brand-domain">.in</span>
+            <small>MCQ Studio</small>
+        </a>
+
+        <button
+            class="mobile-menu-toggle"
+            id="mobileMenuToggle"
+            type="button"
+            aria-label="Open navigation"
+            aria-expanded="false"
+        >
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="main-nav" id="mainNav">
+
+            <button class="nav-item active" type="button" data-section-target="contentSection">
+                Content
+            </button>
+
+            <button class="nav-item" type="button" data-section-target="canvasSection">
+                Canvas
+            </button>
+
+            <button class="nav-item" type="button" data-section-target="exportSection">
+                Export
+            </button>
+
+            <button class="nav-item" type="button" data-section-target="settingsSection">
+                Settings
+            </button>
+
+        </nav>
+
+        <div class="topbar-actions">
+            <span class="save-status" id="saveStatus">Ready</span>
+
+            <button class="button button-primary" id="downloadButton" type="button">
+                Download image
+            </button>
+        </div>
+
+    </header>
+
+
+    <!-- Main Workspace -->
+
+    <main class="workspace">
+
+        <!-- Editor Panel -->
+
+        <aside class="editor-panel" id="editorPanel">
+
+            <div class="panel-heading">
+                <div>
+                    <h1>MCQ editor</h1>
+                    <p>Edit your image content and layout.</p>
+                </div>
+            </div>
+
+
+            <!-- Content Section -->
+
+            <section class="editor-section active" id="contentSection">
+
+                <div class="section-heading">
+                    <h2>Poster content</h2>
+                    <p>All fields are editable.</p>
+                </div>
+
+                <!-- Brand -->
+
+                <div class="field-group">
+                    <label>Brand name</label>
+
+                    <div class="input-row">
+                        <input
+                            type="text"
+                            id="brandName"
+                            value="preparekora"
+                            placeholder="Brand name"
+                            maxlength="30"
+                        >
+
+                        <input
+                            type="text"
+                            id="brandDomain"
+                            value=".in"
+                            placeholder=".in"
+                            maxlength="15"
+                        >
+                    </div>
+                </div>
+
+
+                <!-- MCQ ID -->
+
+                <div class="field-group">
+
+                    <label for="mcqId">Image ID</label>
+
+                    <input
+                        type="text"
+                        id="mcqId"
+                        value="PR/11/0001"
+                        placeholder="Generated image ID"
+                        maxlength="40"
+                        readonly
+                    >
+
+                    <p class="field-help">
+                        Automatically generated for each new image.
+                    </p>
+
+                </div>
+
+
+                <!-- Subject -->
+
+                <div class="field-group">
+
+                    <label for="subjectName">Subject name</label>
+
+                    <input
+                        type="text"
+                        id="subjectName"
+                        value="Reasoning"
+                        placeholder="Enter subject name"
+                        maxlength="60"
+                    >
+
+                </div>
+
+
+                <!-- Question -->
+
+                <div class="field-group">
+
+                    <label for="questionText">Question</label>
+
+                    <textarea
+                        id="questionText"
+                        rows="4"
+                        placeholder="Enter your question"
+                    >Book is related to Reading in the same way as Food is related to?</textarea>
+
+                </div>
+
+
+                <!-- Options -->
+
+                <div class="field-group">
+
+                    <label>Answer options</label>
+
+                    <div class="option-input-group">
+
+                        <div class="option-input">
+                            <span class="option-input-letter">A</span>
+                            <input type="text" id="optionA" value="Cooking" placeholder="Option A">
+                        </div>
+
+                        <div class="option-input">
+                            <span class="option-input-letter">B</span>
+                            <input type="text" id="optionB" value="Eating" placeholder="Option B">
+                        </div>
+
+                        <div class="option-input">
+                            <span class="option-input-letter">C</span>
+                            <input type="text" id="optionC" value="Kitchen" placeholder="Option C">
+                        </div>
+
+                        <div class="option-input">
+                            <span class="option-input-letter">D</span>
+                            <input type="text" id="optionD" value="Buying" placeholder="Option D">
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Comments -->
+
+                <div class="field-group">
+
+                    <label for="commentsTitle">Comments heading</label>
+
+                    <input
+                        type="text"
+                        id="commentsTitle"
+                        value="Comments"
+                        placeholder="Comments"
+                        maxlength="50"
+                    >
+
+                </div>
+
+                <div class="field-group">
+
+                    <label for="commentsText">Comments text</label>
+
+                    <input
+                        type="text"
+                        id="commentsText"
+                        value="The correct option"
+                        placeholder="Enter comments text"
+                        maxlength="100"
+                    >
+
+                </div>
+
+
+                <!-- QR Code -->
+
+                <div class="field-group">
+
+                    <label for="qrUrl">QR code destination URL</label>
+
+                    <input
+                        type="url"
+                        id="qrUrl"
+                        value="https://example.com"
+                        placeholder="https://example.com"
+                    >
+
+                    <p class="field-help">
+                        The QR code will be generated from this URL.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- Canvas Section -->
+
+            <section class="editor-section" id="canvasSection">
+
+                <div class="section-heading">
+                    <h2>Canvas settings</h2>
+                    <p>Choose your image dimensions.</p>
+                </div>
+
+                <div class="field-group">
+
+                    <label for="aspectRatio">Aspect ratio</label>
+
+                    <select id="aspectRatio">
+                        <option value="1:1">1:1 — Square</option>
+                        <option value="16:9">16:9 — Landscape</option>
+                        <option value="9:16">9:16 — Portrait</option>
+                        <option value="4:3" selected>4:3 — Landscape</option>
+                        <option value="3:4">3:4 — Portrait</option>
+                        <option value="custom">Custom size</option>
+                    </select>
+
+                </div>
+
+
+                <!-- Custom Dimensions -->
+
+                <div class="custom-size-fields" id="customSizeFields" hidden>
+
+                    <div class="field-group">
+                        <label for="customWidth">Width (px)</label>
+                        <input type="number" id="customWidth" value="1080" min="100" max="12000">
+                    </div>
+
+                    <div class="field-group">
+                        <label for="customHeight">Height (px)</label>
+                        <input type="number" id="customHeight" value="1350" min="100" max="12000">
+                    </div>
+
+                </div>
+
+
+                <!-- Canvas Information -->
+
+                <div class="canvas-information">
+                    <span>Canvas dimensions</span>
+                    <strong id="canvasDimensions">1080 × 1350 px</strong>
+                    <span id="canvasRatioLabel">4:3 aspect ratio</span>
+                </div>
+
+
+                <div class="field-group">
+
+                    <label for="canvasBackground">Canvas background</label>
+
+                    <div class="color-input-row">
+                        <input type="color" id="canvasBackground" value="#ffffff">
+                        <span id="canvasBackgroundValue">#FFFFFF</span>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- Export Section -->
+
+            <section class="editor-section" id="exportSection">
+
+                <div class="section-heading">
+                    <h2>Export settings</h2>
+                    <p>Choose your output quality and format.</p>
+                </div>
+
+
+                <div class="field-group">
+
+                    <label for="exportResolution">Output resolution</label>
+
+                    <select id="exportResolution">
+                        <option value="2">Standard — 2×</option>
+                        <option value="4" selected>4K — High resolution</option>
+                        <option value="8">8K — Maximum resolution</option>
+                    </select>
+
+                    <p class="field-help">
+                        Higher resolution increases image dimensions and processing requirements.
+                    </p>
+
+                </div>
+
+
+                <div class="field-group">
+
+                    <label for="exportFormat">Image format</label>
+
+                    <select id="exportFormat">
+                        <option value="png" selected>PNG — Lossless quality</option>
+                        <option value="webp">WebP — Smaller file size</option>
+                    </select>
+
+                </div>
+
+
+                <div class="field-group" id="qualityField" hidden>
+
+                    <label for="exportQuality">
+                        WebP quality: <span id="qualityValue">90%</span>
+                    </label>
+
+                    <input
+                        type="range"
+                        id="exportQuality"
+                        min="50"
+                        max="100"
+                        value="90"
+                    >
+
+                </div>
+
+
+                <div class="export-information">
+
+                    <div>
+                        <span>Estimated output</span>
+                        <strong id="exportDimensions">4320 × 5400 px</strong>
+                    </div>
+
+                    <div>
+                        <span>Selected format</span>
+                        <strong id="exportFormatLabel">PNG</strong>
+                    </div>
+
+                </div>
+
+
+                <button class="button button-primary button-full" id="exportButton" type="button">
+                    Download image
+                </button>
+
+                <p class="export-note" id="exportStatus" aria-live="polite">
+                    Your exported image will not include editor controls.
+                </p>
+
+            </section>
+
+
+            <!-- Settings Section -->
+
+            <section class="editor-section" id="settingsSection">
+
+                <div class="section-heading">
+                    <h2>Settings</h2>
+                    <p>Manage automatic image identification.</p>
+                </div>
+
+
+                <!-- ID Generation Information -->
+
+                <div class="settings-information">
+
+                    <strong>Automatic image ID</strong>
+
+                    <p>
+                        Each new image receives a unique ID automatically.
+                        The monthly sequence starts from 0001.
+                    </p>
+
+                    <div class="id-format-example">
+                        <span>PR</span>
+                        <span>/</span>
+                        <span>11</span>
+                        <span>/</span>
+                        <span>0001</span>
+                    </div>
+
+                    <div class="id-format-legend">
+                        <span>Global prefix</span>
+                        <span>Month</span>
+                        <span>Image number</span>
+                    </div>
+
+                </div>
+
+
+                <!-- Emergency Manual Editing Toggle -->
+
+                <div class="setting-row">
+
+                    <div class="setting-description">
+
+                        <strong>Allow manual ID editing</strong>
+
+                        <p>
+                            Enable only when an emergency correction is required.
+                        </p>
+
+                    </div>
+
+                    <label class="toggle-switch" for="manualIdToggle">
+
+                        <input
+                            type="checkbox"
+                            id="manualIdToggle"
+                            aria-label="Allow manual ID editing"
+                        >
+
+                        <span class="toggle-slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="manual-id-status" id="manualIdStatus" aria-live="polite">
+                    Manual editing is disabled. Image ID is automatically managed.
+                </div>
+
+
+                <div class="setting-note">
+                    Automatic ID generation remains enabled. Manual editing only unlocks the ID field; it does not disable the automatic sequence.
+                </div>
+
+            </section>
+
+        </aside>
+
+
+        <!-- Preview Panel -->
+
+        <section class="preview-panel" id="previewPanel">
+
+            <div class="preview-toolbar">
+
+                <div>
+                    <h2>Live preview</h2>
+                    <p>Changes appear automatically.</p>
+                </div>
+
+                <div class="preview-size" id="previewSize">
+                    1080 × 1350
+                </div>
+
+            </div>
+
+
+            <!-- Preview Canvas -->
+
+            <div class="preview-stage" id="previewStage">
+
+                <main class="poster" id="poster">
+
+                    <!-- Poster Header -->
+
+                    <header class="poster-header">
+
+                        <div class="poster-brand">
+                            <span class="poster-brand-name" id="previewBrandName">preparekora</span><span class="poster-brand-domain" id="previewBrandDomain">.in</span>
+                        </div>
+
+                        <div class="poster-id" id="previewMcqId">PR/11/0001</div>
+
+                    </header>
+
+
+                    <!-- Poster Content -->
+
+                    <section class="poster-content">
+
+                        <div class="poster-question-area">
+
+                            <div class="poster-subject" id="previewSubject">
+                                Reasoning
+                            </div>
+
+                            <h1 class="poster-question" id="previewQuestion">
+                                Book is related to Reading in the same way as Food is related to?
+                            </h1>
+
+
+                            <!-- Answer Options -->
+
+                            <div class="poster-options">
+
+                                <div class="poster-option">
+                                    <span class="poster-option-letter">A</span>
+                                    <span class="poster-option-text" id="previewOptionA">Cooking</span>
+                                </div>
+
+                                <div class="poster-option">
+                                    <span class="poster-option-letter">B</span>
+                                    <span class="poster-option-text" id="previewOptionB">Eating</span>
+                                </div>
+
+                                <div class="poster-option">
+                                    <span class="poster-option-letter">C</span>
+                                    <span class="poster-option-text" id="previewOptionC">Kitchen</span>
+                                </div>
+
+                                <div class="poster-option">
+                                    <span class="poster-option-letter">D</span>
+                                    <span class="poster-option-text" id="previewOptionD">Buying</span>
+                                </div>
+
+                            </div>
+
+
+                            <!-- Comments -->
+
+                            <div class="poster-comments">
+
+                                <span class="poster-comments-title" id="previewCommentsTitle">Comments</span>
+
+                                <span class="poster-comments-text" id="previewCommentsText">The correct option</span>
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- Poster Footer / QR -->
+
+                    <footer class="poster-footer">
+
+                        <div class="poster-qr-container">
+                            <div id="previewQrCode"></div>
+                        </div>
+
+                    </footer>
+
+                </main>
+
+            </div>
+
+
+            <!-- Preview Information -->
+
+            <div class="preview-footer">
+                <span>preparekora.in</span>
+                <span id="previewAspectLabel">4:3</span>
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Export Progress Overlay -->
+
+    <div class="export-overlay" id="exportOverlay" hidden>
+
+        <div class="export-loader">
+
+            <div class="loader-spinner"></div>
+
+            <h3>Preparing your image</h3>
+
+            <p id="exportProgressText">Rendering high-resolution image...</p>
+
+            <div class="progress-track">
+                <div class="progress-bar" id="exportProgressBar"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- External Libraries -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+
+<!-- Application Scripts -->
+
+<script src="js/editor.js" defer></script>
+<script src="js/export.js" defer></script>
+<script src="js/script.js" defer></script>
+
+</body>
+</html>
